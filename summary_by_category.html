@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"labelAngle": 0}}, "data": {"name": "data-35ff4904c7f523da228e69d6263d974b"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Product Category", "type": "nominal"}, "x": {"field": "Product Category", "sort": "-y", "title": "Product Category", "type": "nominal"}, "y": {"field": "Total Revenue", "title": "Total Revenue", "type": "quantitative"}}, "height": 400, "title": "Total Revenue by Product Category", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json", "datasets": {"data-35ff4904c7f523da228e69d6263d974b": [{"Product Category": "Beauty Products", "Units Sold": 46, "Total Revenue": 2621.9}, {"Product Category": "Books", "Units Sold": 114, "Total Revenue": 1861.9299999999998}, {"Product Category": "Clothing", "Units Sold": 145, "Total Revenue": 8128.93}, {"Product Category": "Electronics", "Units Sold": 66, "Total Revenue": 34982.41}, {"Product Category": "Home Appliances", "Units Sold": 59, "Total Revenue": 18646.16}, {"Product Category": "Sports", "Units Sold": 88, "Total Revenue": 14326.52}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
