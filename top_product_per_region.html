@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-36575936f264ae42fb1f6d9e27325662"}, "mark": {"type": "arc"}, "encoding": {"color": {"field": "Region", "type": "nominal"}, "theta": {"field": "Total Revenue", "type": "quantitative"}, "tooltip": [{"field": "Region", "type": "nominal"}, {"field": "Product Name", "type": "nominal"}, {"field": "Total Revenue", "type": "quantitative"}, {"field": "Percentage", "type": "nominal"}]}, "height": 300, "title": "Top-Selling Products per Region", "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json", "datasets": {"data-36575936f264ae42fb1f6d9e27325662": [{"Region": "Asia", "Product Name": "Peloton Bike", "Total Revenue": 1895.0, "Percentage": "22.57%"}, {"Region": "Europe", "Product Name": "LG OLED TV", "Total Revenue": 2599.98, "Percentage": "30.97%"}, {"Region": "North America", "Product Name": "Canon EOS R5 Camera", "Total Revenue": 3899.99, "Percentage": "46.46%"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
