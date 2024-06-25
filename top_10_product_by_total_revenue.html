@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-ba532012e6e19a9e0915402dbd034fc2"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Product Name", "type": "nominal"}, "x": {"field": "Total Revenue", "title": "Total Revenue", "type": "quantitative"}, "y": {"field": "Product Name", "sort": "-x", "title": "Product Name", "type": "nominal"}}, "height": 400, "title": "Top 10 Products by Total Revenue", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.17.0.json", "datasets": {"data-ba532012e6e19a9e0915402dbd034fc2": [{"Product Name": "Canon EOS R5 Camera", "Units Sold": 1, "Total Revenue": 3899.99}, {"Product Name": "LG OLED TV", "Units Sold": 2, "Total Revenue": 2599.98}, {"Product Name": "MacBook Pro 16-inch", "Units Sold": 1, "Total Revenue": 2499.99}, {"Product Name": "Apple MacBook Pro 16-inch", "Units Sold": 1, "Total Revenue": 2399.0}, {"Product Name": "iPhone 14 Pro", "Units Sold": 2, "Total Revenue": 1999.98}, {"Product Name": "Peloton Bike", "Units Sold": 1, "Total Revenue": 1895.0}, {"Product Name": "HP Spectre x360 Laptop", "Units Sold": 1, "Total Revenue": 1599.99}, {"Product Name": "Roomba i7+", "Units Sold": 2, "Total Revenue": 1599.98}, {"Product Name": "Garmin Forerunner 945", "Units Sold": 3, "Total Revenue": 1599.97}, {"Product Name": "Samsung Odyssey G9 Gaming Monitor", "Units Sold": 1, "Total Revenue": 1499.99}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
